@@ -6,6 +6,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/*
+* This is the POJO (Plain Old Java Object) data class that serves as a table to be created in the db with the columns
+* The various annotations help to further define the properties of the table being created
+* */
 @Getter
 @Setter
 @NoArgsConstructor
