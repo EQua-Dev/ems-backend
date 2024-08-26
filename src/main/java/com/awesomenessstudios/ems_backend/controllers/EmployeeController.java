@@ -48,15 +48,26 @@ public class EmployeeController {
         return ResponseEntity.ok(foundEmployee);
     }
 
+    //Build Get all Employee REST API
     @GetMapping
     public ResponseEntity<List<EmployeeDto>> getAllEmployees() {
         return ResponseEntity.ok(employeeService.getAllEmployees());
     }
+
+    //Build Update an Employee  REST API
 
     @PutMapping("{id}")
     public ResponseEntity<EmployeeDto> updateEmployee(@PathVariable("id") Long employeeId, @RequestBody EmployeeDto updatedEmployee) {
 
         EmployeeDto updatedEmployeeObj = employeeService.updateEmployee(employeeId, updatedEmployee);
         return ResponseEntity.ok(updatedEmployeeObj);
+    }
+
+    //Build Delete Employee by ID REST API
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteEmployee(@PathVariable("id") Long employeeId) {
+        employeeService.deleteEmployee(employeeId);
+
+        return ResponseEntity.ok("Employee deleted successfully");
     }
 }
